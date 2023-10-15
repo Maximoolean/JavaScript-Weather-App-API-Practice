@@ -44,32 +44,32 @@ async function getWeather() {
     }
 }
 
-// Function to display weather information on the webpage
 function displayWeather(data) {
     // Extract required data from the API response
     const cityName = data.name;
     const temperatureCelsius = data.main.temp;
-    // Convert celsius to farenheit
+    // Convert celsius to Fahrenheit
     const temperature = (temperatureCelsius * 9/5) + 32;
     const description = data.weather[0].description;
     const humidity = data.main.humidity;
     const windSpeed = data.wind.speed;
     
-    // Get the appropriate weather icon class based on weather condition ID
+    // Get the appropriate weather icon path based on weather condition ID
     const weatherIconPath = getWeatherIconClass(data.weather[0].id);
+
+    // Create an image element for the weather icon
     const weatherIconElement = document.createElement('img');
     weatherIconElement.src = weatherIconPath;
     weatherIconElement.alt = 'Weather Icon';
     weatherInfoDiv.appendChild(weatherIconElement);
 
     // Update the HTML content to display weather information
-    weatherInfoDiv.innerHTML = `
+    weatherInfoDiv.innerHTML += `
         <h2>Weather in ${cityName}</h2>
         <p>Temperature: ${temperature.toFixed(2)}°F</p>
         <p>Description: ${description}</p>
         <p>Humidity: ${humidity}%</p>
         <p>Wind Speed: ${windSpeed} m/s</p>
-        <i class="wi ${weatherIconPath} weather-icon"></i> <!-- Display weather icon -->
     `;
 }
 
@@ -79,9 +79,9 @@ function displayError(message) {
 }
 
 // Function to determine the appropriate weather icon class based on weather condition ID
+function getWeatherIconClass(weatherId) {
     // Weather condition ID ranges are used to determine the appropriate icon class
     // Weather Icons library classes are used for different weather conditions
-function getWeatherIconClass(weatherId) {
     if (weatherId >= 200 && weatherId < 300) {
         return 'images/thunderstorm.png'; // Path to thunderstorm icon image
     } else if (weatherId >= 300 && weatherId < 400) {
