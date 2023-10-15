@@ -9,7 +9,6 @@ const weatherInfoDiv = document.getElementById('weatherInfo');
 // Event listener for the search button click
 searchBtn.addEventListener('click', getWeather);
 
-// Function to fetch weather data from the API
 async function getWeather() {
     // Get city name from input field
     const city = document.getElementById('cityInput').value;
