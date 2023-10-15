@@ -7,7 +7,7 @@ This is a simple Weather App I created to help myself learn javascript and how i
 All images and assets used were created by myself
 
 Link to Youtube demonstration:
-[Software Demo Video]()
+[Software Demo Video](https://youtu.be/CH4Mnl6BB8I)
 
 # Development Environment
 
